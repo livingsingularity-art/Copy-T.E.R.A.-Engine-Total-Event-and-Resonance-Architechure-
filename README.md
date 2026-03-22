@@ -1,4 +1,4 @@
-# T.E.R.A. — Tactical Event & Resonance Architecture
+# T.E.R.A. — Total Event & Resonance Architecture
 ### A living world simulation engine for AI Dungeon scenarios
 
 T.E.R.A. replaces AI Dungeon's passive story card matching with an active world simulation. While the AI writes prose, the engine is tracking faction reputations, NPC moods and goals, narrative threads, prophecy chains, player behaviour patterns, countdown clocks, world pressure, and region history — and feeding all of it back into context so the AI responds to a world that actually moves.
