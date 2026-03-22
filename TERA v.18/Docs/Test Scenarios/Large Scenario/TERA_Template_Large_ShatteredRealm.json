@@ -1,0 +1,345 @@
+[
+  {
+    "keys": "TERA|\\_CONFIG|realm-v1",
+    "value": "SCENARIO_MODE: standard\nCONTEXT_BUDGET: 2200\nMAX_CONTEXT_CARDS: 10\nTHREAD_ENABLED: true\nTHREAD_WEIGHT_BOOST: 8\nFACTION_REL_ENABLED: true\nNPC_GOAL_ENABLED: true\nNPC_NPC_REL_ENABLED: true\nCLOCK_NOTIFICATIONS: true\nORACLE_ENABLED: true\nWORLD_PRESSURE_ENABLED: true\nWORLD_PRESSURE_THRESHOLD: 18\nCOMPANION_EVENT_ENABLED: true\nCOMPANION_EVENT_CHANCE: 0.15\nFINGERPRINT_ENABLED: true\nFINGERPRINT_TURNS: 12\nFATE_ARC_ENABLED: true\nRESONANCE_ENABLED: true\nPLAYER_ARC_ENABLED: true\nPLAYER_ARC_BOOST: 3\nREGION_MEMORY_ENABLED: true\nREGION_MEMORY_DEPTH: 3\nSCENARIO_MODE: standard",
+    "title": "TERA|\\_CONFIG|realm-v1",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|\\_SETUP|realm-v1",
+    "value": "region: cap\norigin: outsider\ncalendar: 1 | 2 | 412 | winter | dawn\nunlock_continent: realm\nfaction: crown | 20\nfaction: old_faith | 10\nfaction: merchant_lords | 15\nfaction: the_remnant | -10\nfaction: border_clans | 0\nfaction: forest_covenant | 5\nfaction_rel: crown | old_faith | 35\nfaction_rel: crown | merchant_lords | 20\nfaction_rel: crown | the_remnant | -80\nfaction_rel: old_faith | forest_covenant | 55\nfaction_rel: merchant_lords | border_clans | 15\nfaction_rel: the_remnant | border_clans | 40\nfaction_rel: the_remnant | forest_covenant | -30\nnpc_mood: chancellor | calculating | 2 | 45 | 30\nnpc_mood: archpriest | troubled | 2 | 50 | 45\nnpc_mood: warlord | patient | 1 | 35 | 20\nnpc_mood: exile | bitter | 2 | 60 | 35\nnpc_mood: ranger | watchful | 1 | 28 | 50\nnpc_mood: keeper | grieving | 2 | 55 | 40\nnpc_goal: chancellor | consolidate_power | throne,succession,loyalty,council,authority\nnpc_goal: warlord | reunite_remnant | remnant,clan,alliance,border,gather\nnpc_goal: exile | reclaim_name | name,title,restore,vindicate,truth\nnpc_rel: CHR-Chancellor | CHR-Archpriest | -30\nnpc_rel: CHR-Chancellor | CHR-Exile | -75\nnpc_rel: CHR-Archpriest | CHR-Keeper | 65\nnpc_rel: CHR-Warlord | CHR-Exile | 40\nnpc_rel: CHR-Ranger | CHR-Keeper | 55\nanchor: realm_state | 9 | The realm has been without a crowned monarch for three years. The Chancellor governs by regency. Three factions believe they have a rightful claim to the succession. One of them is correct.\nanchor: outsider_role | 8 | You arrived from outside the realm's political memory — which means every faction sees in you the possibility of a witness who hasn't yet been told what to believe.\nanchor: old_wound | 7 | Twelve years ago the Remnant was broken at the Battle of Ashfeld. The official history says it was a victory. The Remnant's survival suggests the official history omits something.\nclock: succession_deadline | Succession Council convenes | 20 | | 12=first_warning,6=urgent,2=final\nclock: winter_passage | Mountain passes close | 15 | | 5=warning",
+    "title": "TERA|\\_SETUP|realm-v1",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CHR-Chancellor|character|cap|w:0|c:0|none",
+    "value": "[Character: The Chancellor] Has governed the realm by regency for three years with an efficiency that has produced stability and a loyalty debt that has produced leverage. Knows the succession has at least three viable claimants and has spent three years ensuring that none of them knows about the others. Sees in the player's arrival the variable she hasn't been able to account for.",
+    "title": "The Chancellor",
+    "description": "tags:met_chancellor\ngoal:consolidate_power\ngoal_keywords:throne,succession,loyalty,council\nnpc_rivals:CHR-Exile",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CHR-Archpriest|character|cap|w:0|c:0|none",
+    "value": "[Character: The Archpriest] Holds the theological record of every succession for four hundred years and knows something about the current situation that the record requires him to disclose to the rightful heir and forbids him to disclose to anyone else. Has been waiting three years for someone to ask the right question. Is not permitted to prompt the question.",
+    "title": "The Archpriest",
+    "description": "tags:met_archpriest\nnpc_rivals:CHR-Chancellor\nnpc_allies:CHR-Keeper",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CHR-Warlord|character|bdr|w:0|c:0|none",
+    "value": "[Character: The Border Warlord] Commands the fractured clans along the eastern border who were nominally part of the Remnant before Ashfeld. Has spent twelve years rebuilding what the battle took and is now patient in the way of someone who has waited long enough that patience has become preference. Does not want the throne — wants the border recognition that comes with backing the person who takes it.",
+    "title": "The Warlord",
+    "description": "tags:met_warlord\ngoal:reunite_remnant\ngoal_keywords:remnant,clan,alliance,border\nnpc_allies:CHR-Exile",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CHR-Exile|character|bdr|w:0|c:0|none",
+    "value": "[Character: The Exile] Was the realm's senior records keeper before Ashfeld. Was accused of falsifying the battle reports, stripped of title and position, and spent twelve years in the border territories building a case that the falsification was done to his records, not by him. Has evidence. Has been waiting for a situation in which presenting it is possible rather than fatal.",
+    "title": "The Exile",
+    "description": "tags:met_exile\ngoal:reclaim_name\ngoal_keywords:name,title,restore,vindicate,truth\nnpc_allies:CHR-Warlord\nnpc_rivals:CHR-Chancellor",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CHR-Ranger|character|fst|w:0|c:0|none",
+    "value": "[Character: The Forest Ranger] Patrols the old forest on behalf of the Forest Covenant — the non-human custodial agreement that predates the realm by three centuries. Has watched the forest respond to political events in the capital with a correlation that is not coincidence and that the Covenant considers self-evident and that no court has ever taken seriously as evidence.",
+    "title": "The Forest Ranger",
+    "description": "tags:met_ranger\nnpc_allies:CHR-Keeper",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CHR-Keeper|character|fst|w:0|c:0|none",
+    "value": "[Character: The Keeper] Maintains the Covenant's deep records — the agreements, the obligations, the debts that run between the realm and the forest that predate current law. One of those debts is due at the next succession. The Keeper is the only living person who knows its terms. She is grieving because she has read the terms and they are not unkind but they are not what anyone in the capital will expect.",
+    "title": "The Keeper",
+    "description": "tags:met_keeper\ngoal:honor_covenant_debt\ngoal_keywords:debt,covenant,terms,succession,forest\nnpc_allies:CHR-Archpriest,CHR-Ranger",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|LOC-ThroneRoom|character|cap|w:0|c:0|none",
+    "value": "[Location: The Throne Room] The throne is there. Nobody sits in it. The Chancellor conducts all business from a chair placed three feet to its left — a deliberate distance that maintains the fiction of regency without claiming the throne. The room is cold because the fire is only lit for formal occasions, and formal occasions are increasingly rare.",
+    "title": "The Throne Room",
+    "description": "location:LOC-ThroneRoom\ntags:throne_room",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|LOC-BorderFortress|character|bdr|w:0|c:0|none",
+    "value": "[Location: The Border Fortress] Built before the current realm's political boundaries and therefore subject to three overlapping jurisdictions that have never been formally resolved. The Warlord operates here because no single authority can legally compel him to leave. The fortress walls still carry damage from Ashfeld that nobody has repaired.",
+    "title": "The Border Fortress",
+    "description": "location:LOC-BorderFortress\ntags:border_fortress",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|LOC-OldForestHeart|character|fst|w:0|c:0|none",
+    "value": "[Location: The Forest Heart] The geographical and spiritual centre of the Covenant's territory. Things said here are considered binding under Covenant law regardless of what the speaker intended. The Keeper uses it for sensitive conversations because of this — it makes lying structurally uncomfortable in ways that are difficult to explain to people who haven't experienced it.",
+    "title": "The Forest Heart",
+    "description": "location:LOC-OldForestHeart\ntags:forest_heart",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|LOC-HighPass|character|mnt|w:0|c:0|none",
+    "value": "[Location: The High Pass] The only viable mountain crossing before the passes close for winter. Whoever controls it controls communication between the eastern border and the capital for three months. It has changed hands four times in the past century. Currently it is technically neutral — which means the Mountain Wardens hold it and are accepting payments from every faction simultaneously.",
+    "title": "The High Pass",
+    "description": "location:LOC-HighPass\ntags:high_pass",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CAP-MIN-001|minor|cap|w:2|c:4|none",
+    "value": "The succession register is consulted in the archives for the first time in eleven months. The archivist notes the consultation but not who made it — standard procedure. The register contains three hundred years of succession law and one anomalous entry, made twelve years ago, which references a covenant obligation that has no corresponding documentation in the legal record.\n\n[FX]\naddActivity: cap+1\nunlocktag:cap=archive_consulted\n[/FX]",
+    "title": "CAP-MIN-001",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CAP-MIN-002|minor|cap|w:2|c:4|none",
+    "value": "The Chancellor grants an audience to a merchant lord who arrives with three requests and leaves having been granted one and a half. The half is significant. The Chancellor never grants half-measures accidentally. Whatever the remaining half is contingent upon, the merchant lord knows, and they leave with the expression of someone calculating whether the contingency is achievable before the succession council meets.\n\n[FX]\naddActivity: cap+1\nfactionRep: merchant_lords +3\nfactionRep: crown +1\n[/FX]",
+    "title": "CAP-MIN-002",
+    "description": "arc:diplomacy",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CAP-MIN-003|minor|cap|w:2|c:5|none",
+    "value": "The Archpriest visits the archive. He is there for forty minutes and leaves with nothing visible — but the archivist, who watches everyone, notices he spent thirty-five of those minutes at a shelf that holds records from twelve years ago and returned them in a different order than he found them.\n\n[FX]\naddActivity: cap+1\n[/FX]",
+    "title": "CAP-MIN-003",
+    "description": "npcmood:archpriest=troubled",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CAP-MIN-004|minor|cap|w:3|c:4|none",
+    "value": "A petition arrives from the border territories, addressed to the throne. Since there is no one on the throne, the Chancellor's office receives it. Her secretary notes it has been addressed to the throne specifically, not to the regency, which is a legal distinction that becomes relevant only if the succession question is resolved in a specific way. The petition itself concerns grazing rights. The framing is not accidental.\n\n[FX]\naddActivity: cap+1\nfactionRep: border_clans +2\n[/FX]",
+    "title": "CAP-MIN-004",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CAP-MIN-005|minor|cap|w:2|c:5|CAP-MIN-001",
+    "value": "The anomalous succession register entry surfaces in a council legal briefing. A junior counsel presents it as a clerical error from twelve years ago — the period of Ashfeld and its aftermath, when record-keeping was admittedly chaotic. Three senior councillors accept this. One doesn't, and her expression tells you she already knew it wasn't a clerical error before the briefing began.\n\n[FX]\naddActivity: cap+2\nunlocktag:cap=register_entry_known\n[/FX]",
+    "title": "CAP-MIN-005",
+    "description": "tags:archive_consulted",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CAP-MIN-006|minor|cap|w:2|c:4|none",
+    "value": "The throne room fire is lit without a formal occasion scheduled. The staff who light it receive the order from the Chancellor's office and follow it without question — but two of them mention it to each other afterward, because the fire is only lit when the Chancellor is expecting a visitor she considers significant enough for the room's full formality.\n\n[FX]\naddActivity: cap+1\n[/FX]",
+    "title": "CAP-MIN-006",
+    "description": "npcstress:chancellor>=35",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CAP-MOD-001|moderate|cap|w:2|c:7|none",
+    "value": "The Chancellor requests a private meeting. She tells you the succession has three candidates she is managing. She tells you this as if it is a confidence, which it is — but it is also an assessment of how much she can trust you, structured as information. She says the candidates each believe they are the only one. She says she needs to know which one is legitimate before the council convenes, and she is asking you to find out.\n\nShe doesn't say what she will do with the answer. That is not an oversight.\n\n[FX]\naddActivity: cap+3\nunlocktag:cap=succession_task_given\nthread:succession_investigation\nthread_duration:10\n[/FX]",
+    "title": "CAP-MOD-001",
+    "description": "arc:curiosity\narc:diplomacy\nprophecy:The succession has a rightful heir. The rightful heir does not know it.",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CAP-MOD-002|moderate|cap|w:2|c:8|CAP-MOD-001",
+    "value": "The Archpriest tells you the theological record contains something the Chancellor does not know he knows. He frames it carefully: there is a succession test in the covenant document — not the realm's legal covenant, an older one — that was to be administered by a neutral party to the legitimate heir before the council could convene. The test requires a witness with no prior political debt. He looks at you as if this is explanatory.\n\n[FX]\naddActivity: cap+3\nunlocktag:cap=covenant_test_revealed\n[/FX]",
+    "title": "CAP-MOD-002",
+    "description": "thread_match:succession_investigation\ntags:register_entry_known",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CAP-MOD-003|moderate|cap|w:1|c:9|none",
+    "value": "The council session scheduled for next week is moved forward. The announcement is made as a routine administrative matter. Every faction in the capital interprets it as a signal — but each faction interprets it as a different signal, which tells you either the Chancellor staged the ambiguity deliberately or she has lost control of the timeline and is not showing it.\n\n[FX]\naddActivity: cap+4\nremoveclock:succession_deadline\nfactionRep: crown -3\n[/FX]",
+    "title": "CAP-MOD-003",
+    "description": "clock_stage:succession_deadline=urgent\narc:curiosity",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|BDR-MIN-001|minor|bdr|w:2|c:4|none",
+    "value": "The border clans send a delegation to the fortress — not the Warlord's fortress, a neutral waypost that by old agreement serves as meeting ground. The delegation is two people and a scribe. The scribe is recording everything, which means the meeting is intended to produce a document, which means this is not a negotiation — it is a declaration of position being formally witnessed.\n\n[FX]\naddActivity: bdr+1\nfactionRep: border_clans +3\n[/FX]",
+    "title": "BDR-MIN-001",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|BDR-MIN-002|minor|bdr|w:3|c:4|none",
+    "value": "The Exile is at the waypost market when you pass through. He buys nothing, sells nothing, speaks to nobody — but he has a map spread on the table and he is marking distances. The route he is tracing connects the border fortress to the capital by three different paths, none of them the main road, and he covers the map when he notices you watching.\n\n[FX]\naddActivity: bdr+1\n[/FX]",
+    "title": "BDR-MIN-002",
+    "description": "npcmood:exile=bitter",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|BDR-MIN-003|minor|bdr|w:2|c:5|none",
+    "value": "A Remnant patrol — the first in twelve years to operate openly, without disguise — crosses the border at the old ford. They carry no weapons beyond standard road equipment. They stop at the waypost, pay for food and lodging, and move on. The border watch files an incident report and does nothing, because there is no active order defining what to do when the Remnant travels openly and hasn't done anything illegal.\n\n[FX]\naddActivity: bdr+2\nfactionRep: the_remnant +5\nunlocktag:bdr=remnant_active\n[/FX]",
+    "title": "BDR-MIN-003",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|BDR-MIN-004|minor|bdr|w:2|c:5|none",
+    "value": "The Warlord is at the fortress wall watching the eastern road. He's been there for twenty minutes and he is not watching for any specific arrival — he's watching the road the way someone watches a river, reading current and depth. He says, without turning, that the realm doesn't understand borders. A border is an agreement, and agreements require both sides to remember why they agreed. The east stopped remembering twelve years ago.\n\n[FX]\naddActivity: bdr+1\n[/FX]",
+    "title": "BDR-MIN-004",
+    "description": "npcmood:warlord=patient",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|BDR-MIN-005|minor|bdr|w:2|c:5|BDR-MIN-003",
+    "value": "The Exile and the Warlord are in the same room. You were not expected to see this, but the door was open and neither of them moved to close it. What you witness is not a meeting — it is a continuation, something with the rhythm of a conversation they have been having for years. The Exile shows the Warlord a document. The Warlord reads it without expression and nods once.\n\n[FX]\naddActivity: bdr+2\nadjustNpcRel:CHR-Warlord CHR-Exile +10\n[/FX]",
+    "title": "BDR-MIN-005",
+    "description": "tags:remnant_active",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|BDR-MOD-001|moderate|bdr|w:2|c:7|none",
+    "value": "The Warlord gives you the border version of the Ashfeld history — not the official record, the account that survived in oral form among the clans who were there. It differs from the official record in three specific ways, each of which changes the moral character of the battle's outcome completely. He says he's been waiting for someone from the capital who asks questions rather than delivers conclusions.\n\n[FX]\naddActivity: bdr+3\nunlocktag:bdr=ashfeld_truth_partial\nthread:ashfeld_revelation\nthread_duration:8\n[/FX]",
+    "title": "BDR-MOD-001",
+    "description": "arc:curiosity\narc:diplomacy\nprophecy:The true account of Ashfeld will surface before the council convenes.",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|BDR-MOD-002|moderate|bdr|w:2|c:8|BDR-MOD-001",
+    "value": "The Exile provides the documentary evidence. Three pieces: the original battle report in his handwriting, the falsified version that was filed in his name, and a comparative analysis showing eighteen specific alterations. The alterations collectively shift blame for three hundred casualties from a decision made in the capital to a decision attributed to a border clan commander who died in the battle and could not dispute it.\n\nHe says: \"The commander was innocent and is dead. I am alive and was found guilty of the cover-up. I need a witness who can carry this to the council without dying on the road.\"\n\n[FX]\naddActivity: bdr+3\nunlocktag:bdr=ashfeld_documents\n[/FX]",
+    "title": "BDR-MOD-002",
+    "description": "thread_match:ashfeld_revelation\narc:protection\narc:curiosity",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|BDR-MOD-003|moderate|bdr|w:1|c:8|none",
+    "value": "The mountain pass closes early. A storm — genuine, not political — shuts the high pass a week ahead of the seasonal estimate. The Chancellor's courier service is cut off from the border. The border's courier service to the capital still functions through a lower route that adds four days. For one week, the border knows things the capital does not, and the capital cannot respond to things the border reports.\n\n[FX]\naddActivity: bdr+3\nremoveclock:winter_passage\nunlocktag:bdr=pass_closed\nfactionRep: border_clans +4\nfactionRep: crown -4\n[/FX]",
+    "title": "BDR-MOD-003",
+    "description": "arc:curiosity",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|FST-MIN-001|minor|fst|w:2|c:4|none",
+    "value": "The forest is behaving. This is not the natural state — the forest has been restless for three years, since the succession went unresolved. Today it is quiet in the way of something that has made a decision. The Ranger says this is not reassuring. Things in the forest get quiet when they are waiting for something specific.\n\n[FX]\naddActivity: fst+1\n[/FX]",
+    "title": "FST-MIN-001",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|FST-MIN-002|minor|fst|w:2|c:5|none",
+    "value": "The Keeper takes you to a boundary marker — one of the original covenant stones, pre-realm, placed when the forest agreement was first formalised. The stone shows the debt side: what the realm owes at succession. She lets you read it without translating it. The language is archaic but the structure is clear. The realm owes a choice, and the choice has a deadline, and the deadline is the succession council.\n\n[FX]\naddActivity: fst+1\nunlocktag:fst=debt_observed\n[/FX]",
+    "title": "FST-MIN-002",
+    "description": "arc:curiosity",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|FST-MIN-003|minor|fst|w:2|c:4|none",
+    "value": "The Ranger finds tracks that don't correspond to any patrol — human, careful, moving in a pattern that suggests surveillance rather than travel. The tracks enter the forest, circle the Keeper's residence for two circuits, and exit the way they came. The Keeper says it's the third time this month and she knows who it is and has decided not to confront them because she needs them to believe they are undetected.\n\n[FX]\naddActivity: fst+1\n[/FX]",
+    "title": "FST-MIN-003",
+    "description": "npcmood:keeper=grieving",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|FST-MIN-004|minor|fst|w:2|c:5|none",
+    "value": "The Covenant sends a formal notification to the capital via the Ranger. It arrives in the form of a sealed letter addressed to \"the succession authority\" — deliberately not addressed to the Chancellor or the council, because under the covenant's terms neither entity holds succession authority until the debt is resolved. The letter remains undeliverable by its own terms until someone qualifies to receive it.\n\n[FX]\naddActivity: fst+2\nunlocktag:fst=covenant_letter_sent\n[/FX]",
+    "title": "FST-MIN-004",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|FST-MOD-001|moderate|fst|w:2|c:7|none",
+    "value": "The Keeper explains the debt. The original covenant was not a treaty — it was a witness agreement. The forest bore witness to the founding succession and its terms. At each subsequent succession, the forest is owed the same witness: a truthful account of the succession's legitimacy, delivered by someone with no political interest in the outcome.\n\nShe says: \"The realm has broken this agreement three times in the past two centuries. The forest remembers all three. It is still waiting for the accounts.\"\n\n[FX]\naddActivity: fst+3\nunlocktag:fst=debt_explained\nthread:covenant_fulfillment\nthread_duration:10\n[/FX]",
+    "title": "FST-MOD-001",
+    "description": "arc:curiosity\narc:diplomacy",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|FST-MOD-002|moderate|fst|w:2|c:8|FST-MOD-001",
+    "value": "The Keeper leads you to the forest heart and explains that what she is about to tell you is binding if spoken here — she cannot tell you something false in this space and maintain it. She tells you the Keeper's knowledge of the legitimate heir. Not the name — the lineage, and the test, and what the test requires.\n\nThe test requires someone who came to the succession without prior loyalty. Someone from outside the political memory. She looks at you the same way the Archpriest did.\n\n[FX]\naddActivity: fst+3\nunlocktag:fst=test_explained\n[/FX]",
+    "title": "FST-MOD-002",
+    "description": "thread_match:covenant_fulfillment\ntags:debt_explained\nlocation:LOC-OldForestHeart",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|MNT-MIN-001|minor|mnt|w:2|c:4|none",
+    "value": "The Mountain Wardens are taking payments from four separate factions simultaneously for pass access. They log each payment under a different administrative category to avoid the appearance of auctioning a neutral resource. The categories are creative enough that whoever designed the accounting system understands that creative accounting is a form of violence that leaves no blood.\n\n[FX]\naddActivity: mnt+1\nfactionRep: border_clans +2\nfactionRep: crown -2\n[/FX]",
+    "title": "MNT-MIN-001",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|MNT-MIN-002|minor|mnt|w:2|c:4|none",
+    "value": "The pass is technically open but practically difficult — a rockslide three weeks ago narrowed the viable route by half. Large wagons cannot pass. People can. The Remnant has been moving people through the pass for ten days at a rate that doesn't correspond to any legitimate purpose the Wardens can document.\n\n[FX]\naddActivity: mnt+2\nfactionRep: the_remnant +3\nunlocktag:mnt=remnant_moving\n[/FX]",
+    "title": "MNT-MIN-002",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|MNT-MIN-003|minor|mnt|w:2|c:5|none",
+    "value": "A courier carrying the Chancellor's seal is turned back at the upper pass by weather. The courier is experienced and the weather is real but marginal — passable for someone who knew what they were carrying and decided the risk was acceptable. The courier decided it was not acceptable, which tells you either the Chancellor's instructions did not convey urgency, or they did and the courier made an independent assessment about what urgent actually means in a mountain storm.\n\n[FX]\naddActivity: mnt+1\nfactionRep: crown -3\n[/FX]",
+    "title": "MNT-MIN-003",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|MNT-MOD-001|moderate|mnt|w:2|c:7|none",
+    "value": "The high pass becomes the most important place in the realm for forty-eight hours. Everyone who needs to be somewhere else before the council convenes needs to cross it, and the Wardens are at capacity and charging accordingly. You watch three separate factions' representatives queue at the same waystation, eat dinner in the same room, and carefully not discuss anything of substance. The silence has the density of a very loud room.\n\n[FX]\naddActivity: mnt+4\nunlocktag:mnt=pass_contested\nfactionRep: border_clans +3\nfactionRep: crown +3\nfactionRep: the_remnant +3\n[/FX]",
+    "title": "MNT-MOD-001",
+    "description": "arc:diplomacy\narc:curiosity",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|XW-MIN-001|minor|xw|w:2|c:5|none",
+    "value": "Rumour reaches you from somewhere distant: a claimant to the succession died in transit three weeks ago. The rumour has the specific shape of information that is being managed — it's too specific to be fabricated and too vague to be verified. Someone wants it known, but not confirmed.\n\n[FX]\naddActivity: cap+1\naddActivity: bdr+1\n[/FX]",
+    "title": "XW-MIN-001",
+    "description": "arc:curiosity",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|XW-MIN-002|minor|xw|w:3|c:4|none",
+    "value": "A travelling scribe approaches you with a request: to witness a document. The document is standard — a trade agreement, nothing political. But the scribe uses a notarial formula that hasn't been in common use for two decades and was specific to the pre-Ashfeld legal framework. Either they are very old and very habitual, or someone trained them to use that formula for a specific reason.\n\n[FX]\naddActivity: cap+1\n[/FX]",
+    "title": "XW-MIN-002",
+    "description": "arc:curiosity\narc:diplomacy",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|XW-MIN-003|minor|xw|w:2|c:5|none",
+    "value": "The old faith holds a minor observance — seasonal, unremarkable. What is remarkable is the attendance: three times the usual number, drawn from factions that do not typically attend anything together. The Archpriest conducts the observance without deviation from standard form. Afterward, several attendees from different factions leave together and their conversation is too quiet to hear and too intent to be about the observance.\n\n[FX]\naddActivity: cap+2\nfactionRep: old_faith +4\n[/FX]",
+    "title": "XW-MIN-003",
+    "description": "arc:curiosity",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|XW-MOD-001|moderate|xw|w:2|c:8|none",
+    "value": "Three pieces of information arrive simultaneously by different routes. The first: the Exile is moving toward the capital. The second: the Chancellor has recalled her personal guard from border posting. The third: the Keeper of the forest has left the forest for the first time in seven years.\n\nEach piece alone is significant. Together they describe a convergence — multiple independent parties moving toward the same point at the same time, which in political terms means either coincidence or coordination, and coincidences of this scale are not coincidences.\n\n[FX]\naddActivity: cap+4\naddActivity: bdr+2\naddActivity: fst+2\nunlocktag:cap=convergence_beginning\nfires_boost:XW-MAJ-001+5,CAP-MAJ-001+4\n[/FX]",
+    "title": "XW-MOD-001",
+    "description": "arc:curiosity\narc:diplomacy",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|XW-MOD-002|moderate|xw|w:2|c:7|none",
+    "value": "The Remnant makes a public declaration — the first in twelve years. It does not claim a specific candidate for the succession. It claims the right to be heard at the council, under an old provision that the Chancellor's legal office has been quietly working to have expunged for the past eighteen months. The provision requires a two-thirds council majority to override. The Chancellor has two-thirds. The Remnant knows she has two-thirds. The timing of the declaration suggests they are not trying to win the provision — they are trying to establish that she suppressed it.\n\n[FX]\naddActivity: bdr+4\naddActivity: cap+2\nfactionRep: the_remnant +8\nfactionRep: crown -5\nadjustFactionRel:crown the_remnant -15\nunlocktag:bdr=remnant_declared\n[/FX]",
+    "title": "XW-MOD-002",
+    "description": "arc:diplomacy\narc:curiosity",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|XW-MOD-003|moderate|xw|w:1|c:10|none",
+    "value": "Someone attempts to steal the succession register from the archive. They fail — the archivist is there and raises an alarm before the thief reaches the anomalous entry. The thief is not caught. The archivist describes them to the city watch: methodical, professional, working from a description of the target page rather than searching for it, which means they were told exactly what to look for and where to find it.\n\nThe anomalous entry is untouched. Whatever they were after, they either found it in the seconds before the alarm or they weren't after the entry — they were after something adjacent to it.\n\n[FX]\naddActivity: cap+4\nfactionRep: crown -3\nunlocktag:cap=register_targeted\n[/FX]",
+    "title": "XW-MOD-003",
+    "description": "arc:protection\narc:curiosity",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CAP-MAJ-001|major|cap|w:1|c:15|CAP-MOD-001",
+    "value": "The succession test is administered. Not in the council chamber — in the archive, with the Archpriest and the Keeper and one candidate, and you as the witness the test requires. The candidate doesn't know they are the rightful heir until the test is complete. The test is not about blood or law — it is about answering a question honestly when the honest answer damages your political position.\n\nThe candidate answers honestly. The test is complete. The record is now in your possession because the Archpriest handed it to you and said the Chancellor cannot compel a neutral witness.\n\n[FX]\naddActivity: cap+6\nunlocktag:cap=test_complete\nfulfills:CAP-MOD-001\ntragedycooldown:300\n[/FX]",
+    "title": "CAP-MAJ-001",
+    "description": "thread_match:succession_investigation,covenant_fulfillment\narc:curiosity\narc:diplomacy",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|BDR-MAJ-001|major|bdr|w:1|c:15|BDR-MOD-001",
+    "value": "The Ashfeld truth is delivered to the capital. You carry it, or someone carries it because of you, and it arrives before the council convenes. The Chancellor receives it privately first, which was not the plan, and her reaction confirms she already knew most of it — she didn't know about the commander's innocence, and that is the part that costs her.\n\nWhat she does next determines whether the council session produces a legitimate succession or a managed one. She has forty-eight hours to decide, and she is the kind of person who has already modelled both outcomes and is now choosing between them based on something she hasn't said aloud yet.\n\n[FX]\naddActivity: bdr+6\naddActivity: cap+3\nunlocktag:bdr=ashfeld_delivered\nfulfills:BDR-MOD-001\nfactionRep: the_remnant +12\nfactionRep: border_clans +10\n[/FX]",
+    "title": "BDR-MAJ-001",
+    "description": "thread_match:ashfeld_revelation\narc:protection\narc:diplomacy",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|FST-MAJ-001|major|fst|w:1|c:15|FST-MOD-001",
+    "value": "The forest debt is discharged. The Keeper delivers the covenant's witness account to the forest heart, with you present as the neutral witness. The account includes everything: the succession's legitimate heir, the Ashfeld truth, the Chancellor's management of the claimants, and what the realm owes the forest for three unfulfilled witnessings over two centuries.\n\nThe forest accepts the account. The Ranger says you'll know it accepted because the restlessness will stop. You wait. It stops.\n\nThe Keeper says the forest will now have opinions about the council's decision. She says this the way someone says the weather will have opinions about your journey — descriptive, not threatening, and not particularly comforting.\n\n[FX]\naddActivity: fst+6\nunlocktag:fst=debt_discharged\nfulfills:FST-MOD-001\nfactionRep: forest_covenant +15\nadjustFactionRel:old_faith forest_covenant +20\n[/FX]",
+    "title": "FST-MAJ-001",
+    "description": "thread_match:covenant_fulfillment\narc:diplomacy\narc:sacrifice",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|XW-MAJ-001|major|xw|w:1|c:18|XW-MOD-001",
+    "value": "The council convenes. All the converging forces arrive at the same point: the Exile with his documents, the Keeper with the covenant witness, the Archpriest with the theological record, the Warlord with the border clans' formal position, and the Chancellor with whatever she decided in her forty-eight hours.\n\nThe succession is resolved. The manner of its resolution — whether by legitimacy or politics or some combination that the council agrees to describe as legitimacy — depends on what you did and in what order and whose interests you served in the process.\n\nThe new monarch's first act is to address the succession register anomaly. Their second is to decide what to do about the Ashfeld records. Their third, which the realm doesn't know about yet, is to answer the question the test asked.\n\n[FX]\naddActivity: cap+6\naddActivity: bdr+3\naddActivity: fst+3\nfactionRep: crown +15\nunlocktag:cap=succession_resolved\ntragedycooldown:500\n[/FX]",
+    "title": "XW-MAJ-001",
+    "description": "thread_break:1\narc:diplomacy\narc:curiosity\narc:protection",
+    "type": "text"
+  }
+]

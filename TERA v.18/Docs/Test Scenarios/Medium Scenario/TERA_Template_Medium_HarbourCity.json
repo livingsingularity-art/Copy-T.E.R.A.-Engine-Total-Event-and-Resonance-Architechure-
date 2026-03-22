@@ -1,0 +1,247 @@
+[
+  {
+    "keys": "TERA|\\_CONFIG|harbour-v1",
+    "value": "SCENARIO_MODE: solo\nCONTEXT_BUDGET: 2000\nMAX_CONTEXT_CARDS: 8\nTHREAD_ENABLED: true\nFACTION_REL_ENABLED: true\nNPC_GOAL_ENABLED: true\nNPC_NPC_REL_ENABLED: true\nCLOCK_NOTIFICATIONS: true\nORACLE_ENABLED: true\nWORLD_PRESSURE_ENABLED: false\nCOMPANION_EVENT_ENABLED: true\nCOMPANION_EVENT_CHANCE: 0.12",
+    "title": "TERA|\\_CONFIG|harbour-v1",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|\\_SETUP|harbour-v1",
+    "value": "region: hbr\norigin: outsider\ncalendar: 1 | 4 | 847 | spring | morning\nunlock_continent: mainland\nfaction: city_watch | 5\nfaction: merchants_council | 15\nfaction: harbour_guild | 10\nfaction: the_undertow | -5\nfaction_rel: city_watch | merchants_council | 30\nfaction_rel: city_watch | the_undertow | -70\nfaction_rel: merchants_council | harbour_guild | 25\nfaction_rel: harbour_guild | the_undertow | -20\nnpc_mood: harbormaster | efficient | 1 | 28 | 45\nnpc_mood: magistrate | pressured | 2 | 62 | 35\nnpc_mood: fence | watchful | 1 | 40 | 30\nnpc_mood: pilot | resigned | 1 | 35 | 50\nnpc_goal: harbormaster | control_ledger | ledger,manifest,cargo,record,account\nnpc_goal: magistrate | find_source | source,origin,shipment,who,behind\nnpc_rel: CHR-Harbormaster | CHR-Magistrate | -25\nnpc_rel: CHR-Harbormaster | CHR-Pilot | 45\nnpc_rel: CHR-Fence | CHR-Magistrate | -60\nanchor: city_state | 8 | The harbour city's wealth runs through the dock ledger. Someone has been altering it — not stealing cargo, just changing what the records say was on which ship.\nanchor: undertow_fact | 7 | The Undertow operates below the waterline — literally and politically. They have not been this active in fifteen years. The last time they were, the previous harbormaster disappeared.\nclock: audit_deadline | Council Audit | 10 | | 6=warning,3=critical",
+    "title": "TERA|\\_SETUP|harbour-v1",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CHR-Harbormaster|character|hbr|w:0|c:0|none",
+    "value": "[Character: The Harbormaster] Has run the dock ledger for nine years with a precision that has made enemies and a reputation that has made allies. Currently reconciling a four-month discrepancy she has not reported to the Council because she is not yet certain who altered it or whether reporting it would make things better or significantly worse.",
+    "title": "Harbormaster",
+    "description": "tags:met_harbormaster\ngoal:control_ledger\ngoal_keywords:ledger,manifest,cargo,record\nnpc_allies:CHR-Pilot\nnpc_rivals:CHR-Magistrate",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CHR-Magistrate|character|hbr|w:0|c:0|none",
+    "value": "[Character: The Magistrate] Tasked with the harbour audit that begins in ten days. Has found three anomalies in preliminary review that do not add up to a coherent picture of wrongdoing — which means either he is missing context, or whoever altered the ledger is considerably more sophisticated than a dock thief.",
+    "title": "The Magistrate",
+    "description": "tags:met_magistrate\ngoal:find_source\ngoal_keywords:source,origin,who,behind,shipment\nnpc_rivals:CHR-Harbormaster\nnpc_rivals:CHR-Fence",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CHR-Fence|character|hbr|w:0|c:0|none",
+    "value": "[Character: The Fence] Operates a legitimate salvage business that is a thoroughly documented front for moving goods that don't appear on the dock ledger. Has been in this city long enough to know that the current ledger situation is not Undertow work — the Undertow is sloppy in ways that don't match what's happening. Something else is using the harbour.",
+    "title": "The Fence",
+    "description": "tags:met_fence\nnpc_rivals:CHR-Magistrate",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CHR-Pilot|character|hbr|w:0|c:0|none",
+    "value": "[Character: The Harbour Pilot] Guides ships through the channel approaches. Has noticed that three vessels in the past four months took non-standard routes that required bribing the approach log. He logged the bribes officially and has been waiting for someone to ask him about it for two months. Nobody has.",
+    "title": "The Harbour Pilot",
+    "description": "tags:met_pilot\nnpc_allies:CHR-Harbormaster",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|LOC-Dockfront|character|hbr|w:0|c:0|none",
+    "value": "[Location: The Dockfront] The working edge of the city — cranes, mooring lines, the particular smell of salt and cargo and the specific exhaustion of people who lift things for a living. The ledger office sits at the north end. The Undertow's territory begins at the south channel mouth and moves inland by six blocks.",
+    "title": "The Dockfront",
+    "description": "location:LOC-Dockfront\ntags:dockfront",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|LOC-CouncilHall|character|hbr|w:0|c:0|none",
+    "value": "[Location: Council Hall] Where the city's merchant power formally sits. The audit chamber is on the second floor and the windows look directly onto the harbour — a deliberate architectural choice by whoever built it, to remind the Council what their authority is actually built on.",
+    "title": "Council Hall",
+    "description": "location:LOC-CouncilHall\ntags:council_hall",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MIN-001|minor|hbr|w:2|c:4|none",
+    "value": "A cargo manifest is filed with a correction note attached — the correction note correcting the correction, which corrects the original. The dock clerk who processes it sets it aside with the expression of someone who has stopped expecting paperwork to resolve cleanly. The manifest is for a ship that arrived three weeks ago and has already left.\n\n[FX]\naddActivity: hbr+1\n[/FX]",
+    "title": "HBR-MIN-001",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MIN-002|minor|hbr|w:2|c:4|none",
+    "value": "Two dock workers are arguing about which of them was assigned to a particular berth on a particular night four months ago. The argument has the texture of something that began as a memory dispute and has become something larger. They both claim the berth was empty. The log says a ship was there for six hours.\n\n[FX]\naddActivity: hbr+1\nunlocktag:hbr=ledger_anomaly\n[/FX]",
+    "title": "HBR-MIN-002",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MIN-003|minor|hbr|w:2|c:5|none",
+    "value": "The Fence buys you a drink without being asked and tells you the city has been moving something it shouldn't. Not contraband — the Undertow handles contraband and they're as confused as anyone. Something that doesn't have a category. He says the Undertow's confusion is actually the most alarming thing about the situation.\n\n[FX]\naddActivity: hbr+2\nfactionRep: the_undertow +3\n[/FX]",
+    "title": "HBR-MIN-003",
+    "description": "npcmood:fence=watchful",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MIN-004|minor|hbr|w:2|c:4|none",
+    "value": "A ship's captain files a formal complaint about her cargo being offloaded to the wrong warehouse. The dock office processes the complaint, locates the cargo in the correct warehouse — the warehouse she specified in her original manifest — and marks the complaint resolved. She reads the resolution and files a second complaint about the resolution. The cycle has been running for eleven days.\n\n[FX]\naddActivity: hbr+1\nfactionRep: merchants_council -2\n[/FX]",
+    "title": "HBR-MIN-004",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MIN-005|minor|hbr|w:2|c:5|none",
+    "value": "The harbour pilot finds you on the dockfront and shows you a page from the approach log. Three vessels, four months, non-standard routes. Each bribe is logged with the amount and the name of the officer who accepted it. He has been carrying this page for two months waiting for someone who looks like they're asking the right questions.\n\n[FX]\naddActivity: hbr+2\nunlocktag:hbr=pilot_evidence\n[/FX]",
+    "title": "HBR-MIN-005",
+    "description": "npcmood:pilot=resigned",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MIN-006|minor|hbr|w:3|c:4|none",
+    "value": "A city watch patrol doubles its presence on the south channel for one night, then returns to normal the following morning. The sergeant in charge files no incident report. When asked, she says they were responding to a concern that turned out to be a misunderstanding. The concern was reported by someone she cannot identify because the report was anonymous and used a code she doesn't recognise.\n\n[FX]\naddActivity: hbr+1\nfactionRep: city_watch +2\n[/FX]",
+    "title": "HBR-MIN-006",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MIN-007|minor|hbr|w:2|c:6|none",
+    "value": "The harbormaster works past midnight for the fourth consecutive night. The light in the ledger office is visible from the dockfront. Nobody who works in that building after hours has been able to give a satisfying explanation for what they are finding when they cross-reference the last four months against the general cargo register.\n\n[FX]\naddActivity: hbr+1\n[/FX]",
+    "title": "HBR-MIN-007",
+    "description": "npcstress:harbormaster>=20",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MIN-008|minor|hbr|w:2|c:5|HBR-MIN-002",
+    "value": "The two dock workers from the berth argument have reconciled their memories. They now agree the berth was not empty — there was a ship, they both saw it, and neither of them can describe it. Not due to memory failure. Due to the specific difficulty of describing something that was present but structured to resist description. They use the word \"quiet\" four times in explaining what they remember.\n\n[FX]\naddActivity: hbr+2\n[/FX]",
+    "title": "HBR-MIN-008",
+    "description": "tags:ledger_anomaly",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MIN-009|minor|hbr|w:2|c:4|none",
+    "value": "The Undertow sends a message through the fence: they want the same thing the city watch wants, which is for whoever is using the harbour to stop, because the disruption is bad for operations. They are offering information in exchange for the identity of whoever is responsible. The fence says this is either genuine or the most sophisticated misdirection he has encountered in fifteen years, and he cannot determine which.\n\n[FX]\naddActivity: hbr+2\nfactionRep: the_undertow +5\nadjustFactionRel:city_watch the_undertow +10\n[/FX]",
+    "title": "HBR-MIN-009",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MIN-010|minor|hbr|w:2|c:5|none",
+    "value": "Three merchants simultaneously discover their cargo weights don't match their manifests. Not missing cargo — heavier cargo. By a consistent amount across three different ships. They compare notes with the specific wariness of people realising they have been part of something without being informed.\n\n[FX]\naddActivity: hbr+2\nfactionRep: merchants_council -3\nunlocktag:hbr=weight_anomaly\n[/FX]",
+    "title": "HBR-MIN-010",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MIN-011|minor|hbr|w:2|c:4|none",
+    "value": "The magistrate eats lunch on the dock steps and watches the water. He looks like someone who has stopped trusting his preliminary findings because they point toward something the law does not have adequate precedent to address. He sees you watching him and nods without invitation, which means he is looking for someone to think out loud at who is not formally part of his investigation.\n\n[FX]\naddActivity: hbr+1\n[/FX]",
+    "title": "HBR-MIN-011",
+    "description": "npcstress:magistrate>=50",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MIN-012|minor|hbr|w:2|c:5|none",
+    "value": "A ship departs at an hour that is technically permitted but practically unusual — pre-dawn, minimum crew visible, no cargo declaration filed for the outbound leg. The harbour pilot is not on the approach log for the departure. The watch officer on duty marks it as an administrative exception and goes back to their rounds.\n\n[FX]\naddActivity: hbr+2\n[/FX]",
+    "title": "HBR-MIN-012",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MOD-001|moderate|hbr|w:2|c:7|none",
+    "value": "The harbormaster asks to speak with you privately. She shows you four months of ledger pages and a column that should not exist — cargo categorised under a code that doesn't correspond to any registered goods category in the city's classification system. The code was added to the ledger's master reference two years ago by someone with administrator access. She has been the only administrator for the past nine years.\n\nShe says: \"Someone had my credentials. I need to know if it was before or after the harbormaster job, because the answer determines who I report it to.\"\n\n[FX]\naddActivity: hbr+3\nunlocktag:hbr=ledger_source_sought\nthread:ledger_investigation\nthread_duration:7\n[/FX]",
+    "title": "HBR-MOD-001",
+    "description": "arc:curiosity\nprophecy:The ledger holds a name — but not the name of the person responsible.",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MOD-002|moderate|hbr|w:2|c:8|HBR-MOD-001",
+    "value": "The harbour pilot gives evidence to the magistrate's preliminary inquiry. Afterwards he finds you and says the three ships with non-standard approaches all had one thing in common: they arrived without a registered pilot on board, which should be impossible for vessels of their size in this channel. The approach log was falsified to show a pilot who can confirm the entries — because the pilot listed is him, and he has spent two months waiting to deny it.\n\n[FX]\naddActivity: hbr+3\nfactionRep: city_watch +5\n[/FX]",
+    "title": "HBR-MOD-002",
+    "description": "thread_match:ledger_investigation\nnpcmood:pilot=resigned",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MOD-003|moderate|hbr|w:2|c:7|none",
+    "value": "The Undertow delivers what they promised: the name of the warehouse receiving the anomalous cargo. It is not an Undertow warehouse. It is registered to a company that was dissolved four years ago in a routine business closure — routine except that the dissolution paperwork was filed by someone using the harbormaster's credential code.\n\nThe fence says: \"The dead company is the message. Whoever did this wants you to find it.\"\n\n[FX]\naddActivity: hbr+3\nunlocktag:hbr=dead_company_found\nfires_boost:HBR-MAJ-001+3\n[/FX]",
+    "title": "HBR-MOD-003",
+    "description": "thread_match:ledger_investigation\nfaction_rel:city_watch,the_undertow>=-50",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MOD-004|moderate|hbr|w:1|c:9|none",
+    "value": "The audit clock accelerates. The Council moves the deadline forward by three days — no explanation given, except that a Council member with cargo interests has requested an expedited review. The magistrate learns of this change at the same time as everyone else and his reaction tells you the expedited review was not his idea and is not welcome.\n\n[FX]\naddActivity: hbr+3\nremoveclock:audit_deadline\n[/FX]",
+    "title": "HBR-MOD-004",
+    "description": "clock_stage:audit_deadline=warning\narc:diplomacy",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MOD-005|moderate|hbr|w:2|c:8|HBR-MOD-001",
+    "value": "The harbormaster and the magistrate are in the same room for the first time since the inquiry began. They do not speak to each other directly. What they both tell you separately, within thirty minutes, is identical: the cargo code in the ledger corresponds to a goods category that doesn't officially exist — but does exist in a trade treaty that was negotiated, signed, and then sealed from public record twelve years ago.\n\nThey each believe the other already knew this.\n\n[FX]\naddActivity: hbr+3\nadjustNpcRel:CHR-Harbormaster CHR-Magistrate -15\n[/FX]",
+    "title": "HBR-MOD-005",
+    "description": "thread_match:ledger_investigation\nnpcstress:harbormaster>=45\nnpcstress:magistrate>=55",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MOD-006|moderate|hbr|w:2|c:8|none",
+    "value": "Three weight-heavy merchants compare notes publicly on the dockfront. The conversation attracts an audience. The audience includes two city watch officers who are there because they were told to monitor merchant gatherings, not because they were told why. By the end of the conversation one of the merchants has produced documentation that should not exist outside a sealed Council chamber. Nobody asks how she obtained it.\n\n[FX]\naddActivity: hbr+4\nfactionRep: merchants_council +5\nfactionRep: city_watch -3\nadjustFactionRel:merchants_council city_watch -10\n[/FX]",
+    "title": "HBR-MOD-006",
+    "description": "tags:weight_anomaly\narc:diplomacy",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MOD-007|moderate|hbr|w:2|c:9|none",
+    "value": "The fence asks you to deliver a message to the magistrate — verbally, no record. The message is a description of three people who have been watching the ledger office for the past week. He says two of them are his, placed there at the harbormaster's request. The third is not his, and the harbormaster doesn't know about the third either. He would like to know who placed the third watcher and whether you intend to tell the magistrate before or after you've decided whose side you're on.\n\n[FX]\naddActivity: hbr+3\n[/FX]",
+    "title": "HBR-MOD-007",
+    "description": "arc:diplomacy\narc:curiosity\nnpc_allies:CHR-Harbormaster",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MOD-008|moderate|hbr|w:1|c:10|none",
+    "value": "The approach log goes missing. Not stolen with evidence of theft — simply not where it is supposed to be, in a room that has been locked and that only the harbormaster and the pilot have keys to. The pilot has his key. The harbormaster has her key. A third key, which should be held by the dock authority and which nobody has needed in seven years, is in its proper place and shows no sign of use.\n\n[FX]\naddActivity: hbr+4\nunlocktag:hbr=log_missing\n[/FX]",
+    "title": "HBR-MOD-008",
+    "description": "thread_match:ledger_investigation\narc:curiosity",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MOD-009|moderate|hbr|w:2|c:7|none",
+    "value": "A companion event — if someone has joined you. They find, in the market, a vendor selling goods that match the unregistered cargo description exactly. The vendor has a bill of sale that is legitimate on its surface and impossible on examination: the issuing merchant company was dissolved before the goods could have been produced. The vendor doesn't know this. They bought it from a man at the south channel three days ago.\n\n[FX]\naddActivity: hbr+3\n[/FX]",
+    "title": "HBR-MOD-009",
+    "description": "companion:1\ntags:weight_anomaly,ledger_anomaly",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MOD-010|moderate|hbr|w:2|c:8|HBR-MOD-003",
+    "value": "The dead company resolves into a name. Not the company owner — a signatory, buried in a subsidiary clause of the dissolution filing. The signatory holds a current position in the city's administrative structure, one level above anyone conducting this investigation. The harbormaster identifies it. She sits with that knowledge for exactly ninety seconds, then asks you what you intend to do with it before she decides what she intends to do with it.\n\n[FX]\naddActivity: hbr+4\nunlocktag:hbr=signatory_found\nfires_boost:HBR-MAJ-002+4,HBR-MAJ-003+2\n[/FX]",
+    "title": "HBR-MOD-010",
+    "description": "thread_match:ledger_investigation\nfulfills:HBR-MOD-001",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MAJ-001|major|hbr|w:1|c:15|HBR-MOD-003",
+    "value": "The warehouse registered to the dissolved company is empty when you find it — but it has been emptied recently and carefully. The walls still hold the impression of what was stored there: industrial quantities of something that was not on any public goods list. The dock workers who emptied it were paid in cash and given a story about a routine relocation. One of them kept a single item as payment, because the cash was slightly short. They have it at home and don't understand what it is. They offer to show you.\n\n[FX]\naddActivity: hbr+6\nunlocktag:hbr=warehouse_found\ntragedycooldown:200\n[/FX]",
+    "title": "HBR-MAJ-001",
+    "description": "thread_match:ledger_investigation\ntags:dead_company_found\narc:curiosity",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MAJ-002|major|hbr|w:1|c:18|HBR-MOD-010",
+    "value": "The signatory is confronted. Not arrested — confronted, in a way that makes clear you know, which makes their next move as revealing as any formal accusation. They choose to explain rather than deny, and the explanation is worse than the crime the ledger suggested. The sealed trade treaty, the dissolved company, the unmarked ships: none of it was a conspiracy for profit. It was a conspiracy for something the city doesn't have a law against because nobody legislated for the possibility.\n\nThey ask you what you intend to do. They seem genuinely uncertain. They believed the purpose justified the method. They are no longer certain the purpose is being served.\n\n[FX]\naddActivity: hbr+6\nunlocktag:hbr=truth_known\nfactionRep: city_watch +8\nfactionRep: merchants_council -8\n[/FX]",
+    "title": "HBR-MAJ-002",
+    "description": "tags:signatory_found\narc:diplomacy\narc:curiosity\nthread_break:1",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MAJ-003|major|hbr|w:1|c:20|HBR-MAJ-002",
+    "value": "The audit begins early. The magistrate has the signatory's full testimony and the ledger evidence and the sealed treaty and three witnesses including the harbormaster and the pilot. He presents it to the Council in a closed session. You are not in the room. What comes out of that session depends on what you did with the information before it got there, and who you told, and in what order.\n\nThe harbormaster finds you afterward. She says the outcome was exactly as good or exactly as bad as your choices made it. Then she thanks you for making them, because she couldn't have done it without someone willing to stand in the middle of competing loyalties and make decisions nobody had formally authorised.\n\n[FX]\naddActivity: hbr+6\nfactionRep: city_watch +10\nfactionRep: merchants_council +5\nfactionRep: harbour_guild +8\n[/FX]",
+    "title": "HBR-MAJ-003",
+    "description": "tags:truth_known\narc:diplomacy",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MAJ-004|major|hbr|w:1|c:15|none",
+    "value": "The Undertow makes a move. Not hostile — they surface one of their own, a port liaison who has been operating legally for eleven years, and submit a formal cooperation offer to the city watch. The timing is precise: immediately after the warehouse discovery, before the audit. The offer is legitimate and has nothing to do with altruism. The Undertow has correctly identified that whatever was in the warehouse is more dangerous to their operations than city watch scrutiny, and they are making a calculated trade.\n\nThe watch liaison who receives the offer doesn't know what to do with it. Nobody in the city's legal structure has protocols for an organised criminal faction submitting paperwork.\n\n[FX]\naddActivity: hbr+6\nfactionRep: the_undertow +12\nadjustFactionRel:city_watch the_undertow +25\n[/FX]",
+    "title": "HBR-MAJ-004",
+    "description": "tags:warehouse_found\nfaction_rel:city_watch,the_undertow>=-50",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|HBR-MAJ-005|major|hbr|w:1|c:20|none",
+    "value": "The ships come back. All three of them, at once, in the pre-dawn channel approach without pilots. The harbour pilot watches from the dockfront as they berth themselves — perfectly, without assistance, without the sound of any engine or sail in operation. Each ship is empty. Each ship's log ends at the same timestamp four months ago, mid-sentence, in the handwriting of crew members who are currently accounted for and working other routes and have no memory of those entries.\n\nThe harbormaster opens the ledger to the relevant month. The anomalous cargo code column is gone — not deleted, not corrected. Simply not there, as if it was never entered.\n\n[FX]\naddActivity: hbr+6\ntragedycooldown:300\nunlocktag:hbr=ships_returned\n[/FX]",
+    "title": "HBR-MAJ-005",
+    "description": "arc:curiosity\nprophecy:The harbour will be stranger at the end of this than at the beginning.",
+    "type": "text"
+  }
+]

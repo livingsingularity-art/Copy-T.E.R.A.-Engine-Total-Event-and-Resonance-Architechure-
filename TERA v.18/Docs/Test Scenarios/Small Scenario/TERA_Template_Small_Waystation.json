@@ -1,0 +1,107 @@
+[
+  {
+    "keys": "TERA|\\_CONFIG|waystation-v1",
+    "value": "SCENARIO_MODE: oneshot\nCONTEXT_BUDGET: 1800\nMAX_CONTEXT_CARDS: 6\nTHREAD_ENABLED: true\nFACTION_REL_ENABLED: true\nNPC_GOAL_ENABLED: true\nCLOCK_NOTIFICATIONS: true\nORACLE_ENABLED: true",
+    "title": "TERA|\\_CONFIG|waystation-v1",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|\\_SETUP|waystation-v1",
+    "value": "region: way\norigin: traveller\ncalendar: 1 | 1 | 1 | autumn | dusk\nunlock_continent: waylands\nfaction: road_wardens | 5\nfaction: merchants_guild | 10\nfaction_rel: road_wardens | merchants_guild | 20\nnpc_mood: innkeeper | cautious | 1 | 30 | 55\nnpc_mood: stranger | guarded | 2 | 55 | 25\nnpc_goal: stranger | leave_before_dawn | dawn,leave,go,depart,door\nanchor: world_fact | 8 | The waystation sits alone at the crossroads. The road north has been closed for three days. Nobody will say why.\nanchor: stranger_fact | 7 | The stranger arrived at dusk and has not eaten, spoken to anyone, or moved from their corner table since.\nclock: dawn_clock | Dawn arrives | 8",
+    "title": "TERA|\\_SETUP|waystation-v1",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CHR-Innkeeper|character|way|w:0|c:0|none",
+    "value": "[Character: The Innkeeper] Runs the waystation alone since her husband left to check the road north three days ago and has not returned. She fills cups without being asked and answers questions with the minimum words required. She is frightened and has decided the most useful thing she can do with that fear is keep the fire going and the doors unlocked.",
+    "title": "Innkeeper",
+    "description": "tags:met_innkeeper\ngoal:find_husband\ngoal_keywords:husband,road,north,missing,find",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|CHR-Stranger|character|way|w:0|c:0|none",
+    "value": "[Character: The Stranger] Corner table. Hood up. Has not touched the cup placed in front of them two hours ago. When the firelight shifts, you can see they are watching the door — not with the wariness of someone afraid of who might enter, but the attention of someone deciding whether to leave.",
+    "title": "Stranger",
+    "description": "tags:met_stranger\nnpc_rivals:\nnpc_allies:",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|LOC-Waystation|character|way|w:0|c:0|none",
+    "value": "[Location: The Waystation] A single large room. Eight tables, six empty. Fire in the eastern wall that the innkeeper feeds without stopping. The road north is visible through the window — dark, no lanterns, no movement for three days. The road south is open. Two wagons are parked outside; their drivers are asleep upstairs and have not asked about the north road.",
+    "title": "The Waystation",
+    "description": "location:LOC-Waystation\ntags:waystation",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|WAY-MIN-001|minor|way|w:2|c:4|none",
+    "value": "The wagon drivers come downstairs separately, with the specific timing of people who have agreed not to discuss something. The first asks the innkeeper for the road report without meeting her eyes. She recites distances and conditions for the south road with the fluency of someone who has given the same answer many times this week. Neither of them mentions the north.\n\n[FX]\naddActivity: way+1\n[/FX]",
+    "title": "WAY-MIN-001",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|WAY-MIN-002|minor|way|w:2|c:5|none",
+    "value": "A Warden courier arrives, accepts a cup, and spreads a map on the bar. The map has a section marked in red ink — the north road and the two villages beyond it. The marking is fresh. She rolls it before you can read the annotation, finishes her cup in one motion, and leaves without signing the waystation register.\n\n[FX]\naddActivity: way+2\nfactionRep: road_wardens +3\nunlocktag:way=warden_presence\n[/FX]",
+    "title": "WAY-MIN-002",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|WAY-MIN-003|minor|way|w:3|c:4|none",
+    "value": "The fire settles and for a moment the room is quieter. In that quiet you notice the stranger has moved — not left, but shifted their chair by half a foot so the door is no longer directly in their sightline. Whatever they were watching for, they have either decided it isn't coming or decided it already arrived.\n\n[FX]\naddActivity: way+1\n[/FX]",
+    "title": "WAY-MIN-003",
+    "description": "npcmood:stranger=guarded",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|WAY-MIN-004|minor|way|w:2|c:6|none",
+    "value": "One of the wagon drivers tries to buy information from the innkeeper about the north road closure. He slides coins across the bar with the practiced casualness of someone who does this regularly. She looks at the coins, looks at him, and says she doesn't sell what she doesn't have. He leaves the coins on the bar. She doesn't touch them.\n\n[FX]\naddActivity: way+1\nfactionRep: merchants_guild -3\n[/FX]",
+    "title": "WAY-MIN-004",
+    "description": "",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|WAY-MIN-005|minor|way|w:2|c:5|WAY-MIN-002",
+    "value": "The Warden courier returns — same horse, different urgency. She doesn't stop this time. Through the window you watch her ride north at full canter, past the point where the road is supposed to be closed. She doesn't slow at the barrier. Either she has authorization or she has decided authorization is no longer the relevant variable.\n\n[FX]\naddActivity: way+2\nfactionRep: road_wardens +5\n[/FX]",
+    "title": "WAY-MIN-005",
+    "description": "tags:warden_presence",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|WAY-MOD-001|moderate|way|w:2|c:8|none",
+    "value": "The stranger speaks. Not to you specifically — to the room. They say the north road isn't closed because of anything on the road. It's closed because of what's at the end of it. They pick up their untouched cup, drink it cold, and set it down. \"The innkeeper's husband knows what it is. That's why he hasn't come back. Not because he can't. Because he's decided the knowing is more important than the coming back.\"\n\nThe innkeeper does not react. She has heard this before, or she knew it already, or she has decided not to let the reaction show.\n\n[FX]\naddActivity: way+3\nunlocktag:way=north_secret_surfaced\n[/FX]",
+    "title": "WAY-MOD-001",
+    "description": "npcstress:innkeeper>=25\nthread:north_revelation\nthread_duration:5\nprophecy:The road north will open before dawn — but not for everyone.",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|WAY-MOD-002|moderate|way|w:2|c:7|WAY-MOD-001",
+    "value": "The innkeeper puts down the cloth she's been using to wipe the bar. She tells the room — not the stranger, the room — that her husband sent a message two days ago. Just the waystation's code for \"I am well\" and nothing else. The code he uses when he is well but cannot say more. She has been waiting for the second message and it has not come.\n\nShe picks the cloth back up. She doesn't say anything else. She doesn't look at the stranger.\n\n[FX]\naddActivity: way+3\n[/FX]",
+    "title": "WAY-MOD-002",
+    "description": "thread_match:north_revelation\nnpcstress:innkeeper>=25",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|WAY-MOD-003|moderate|way|w:1|c:10|none",
+    "value": "The clock on the waystation wall stops. Not winds down — stops, mid-tick, with the pendulum frozen at an angle that should be unstable. The innkeeper notices and doesn't comment. The wagon drivers notice and look at each other. The stranger notices and for the first time since they arrived, they smile.\n\nIt is not a comfortable smile.\n\n[FX]\naddActivity: way+3\nunlocktag:way=strange_occurrence\n[/FX]",
+    "title": "WAY-MOD-003",
+    "description": "arc:curiosity\nprophecy:Something at the waystation is not what it appears to be.",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|WAY-MAJ-001|major|way|w:1|c:15|WAY-MOD-001",
+    "value": "The north road opens. Not because a barrier was removed — because the barrier was never physical. You understand this when you watch the stranger stand, pick up a pack that was not there a moment ago, and walk to the door. They pause with their hand on the frame and tell you the road is open for anyone who knows what they're walking toward. Then they tell you what they are, and why they came, and what is at the end of the road.\n\nWhat they tell you is true. You know it is true because the innkeeper, still behind the bar, is already crying — and not with surprise.\n\n[FX]\naddActivity: way+6\ntragedycooldown:300\nunlocktag:way=north_revealed\n[/FX]",
+    "title": "WAY-MAJ-001",
+    "description": "thread_match:north_revelation\nthread_break:1\nfulfills:WAY-MOD-001\narc:curiosity",
+    "type": "text"
+  },
+  {
+    "keys": "TERA|WAY-MAJ-002|major|way|w:1|c:20|WAY-MOD-003",
+    "value": "The stranger's hood comes down. You have seen their face before — in the waystation's old register, in a signature dated eleven years ago. The same name, the same handwriting. Eleven years and the same face, unchanged. They look at the frozen clock and say that time moves differently for people who have stood at the end of the north road. Then they ask you if you want to understand why, or if you would prefer to take the south road in the morning and let the question stay closed.\n\nThey are genuinely asking. They will accept either answer.\n\n[FX]\naddActivity: way+6\nfulfills:WAY-MOD-003\n[/FX]",
+    "title": "WAY-MAJ-002",
+    "description": "tags:strange_occurrence\nthread_match:north_revelation\narc:curiosity\narc:diplomacy",
+    "type": "text"
+  }
+]
