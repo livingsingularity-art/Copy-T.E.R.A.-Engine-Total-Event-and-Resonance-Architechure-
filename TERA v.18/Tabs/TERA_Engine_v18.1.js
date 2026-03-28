@@ -2195,7 +2195,7 @@ function applyEffects(card) {
         const cnar = arg.slice(sp + 1).trim();
         if (cid && cnar) {
           const key = `TERA|${cid}|character|${creg}|w:0|c:0|none`;
-          addStoryCard({ keys: key, entry: cnar });
+          addStoryCard(cid, cnar, "text", key, "");
           _teraEnsureRegistry();
           if (!t.inventory.some(e => e.id === cid)) {
             t.inventory.push({ id: cid, acquiredTurn: t.turn });
@@ -2693,7 +2693,7 @@ function _scanForNewNpcs(text) {
       const stubId = "CHR-" + word;
       const stubKey = "TERA|" + stubId + "|character|" + t.region + "|w:0|c:0|none";
       const stubEntry = word + " is a character encountered in the story. [Auto-stub: fill in details.]";
-      addStoryCard({ title: "TERA | " + stubId + " (auto-stub)", keys: stubKey, entry: stubEntry, description: "" });
+      addStoryCard("TERA | " + stubId + " (auto-stub)", stubEntry, "text", stubKey, "");
       t._npcStubCreated[lower] = true;
       _npcNameMap  = null; // invalidate name map so next scan picks up new NPC
       _npcScanRegex = null; // v16: also invalidate compiled regex union
@@ -3056,7 +3056,7 @@ function _scanForNewLocations(text) {
         const stubId = "LOC-" + normalized;
         const stubKey = "TERA|" + stubId + "|character|" + t.region + "|w:0|c:0|none";
         const stubEntry = phrase + " — a location encountered in the story. [Auto-stub: fill in details.]";
-        addStoryCard({ title: "TERA | " + stubId + " (auto-stub)", keys: stubKey, entry: stubEntry, description: "" });
+        addStoryCard("TERA | " + stubId + " (auto-stub)", stubEntry, "text", stubKey, "");
         t._locStubCreated[lowerNorm] = true;
         _teraEnsureRegistry(); // rebuild so this LOC card is immediately available
       }
@@ -3713,7 +3713,7 @@ function teraApplyLegacy(code) {
 
   function addCard(id, title, keys, entry, desc) {
     if (existingIds.has(id)) return false;
-    if (typeof addStoryCard === "function") addStoryCard({ title, keys, entry, description: desc || "" });
+    if (typeof addStoryCard === "function") addStoryCard(title, entry, "text", keys, desc || "");
     existingIds.add(id);
     created.push(id);
     return true;
